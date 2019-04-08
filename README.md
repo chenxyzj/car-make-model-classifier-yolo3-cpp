@@ -6,6 +6,8 @@
 
 A C++ example for using [Spectrico's car make and model classifier](http://spectrico.com/car-make-model-recognition.html). It consists of object detector for finding the cars, and a classifier to recognize the makes and models of the detected cars. The object detector is an implementation of YOLOv3 (OpenCV DNN backend). It doesn't use GPU and one frame takes 1s to process on Intel Core i5-7600 CPU. YOLOv3 weights were downloaded from [YOLO website](https://pjreddie.com/darknet/yolo/). The classifier is based on Mobilenet v2 (OpenCV DNN backend). It takes 35 milliseconds on Intel Core i5-7600 CPU for single classification. The light version of the classifier is slightly less accuracy but is 4 times faster. It is optimized for speed and is recommended for edge devices. The demo doesn't include the classifier for car make and model recognition. It is a commercial product and is available for purchase at [http://spectrico.com/car-make-model-recognition.html](http://spectrico.com/car-make-model-recognition.html).
 
+![image](https://github.com/spectrico/car-make-model-classifier-yolo3-cpp/blob/master/car-make-model.png?raw=true)
+
 ---
 ## Object Detection and Classification in images
 This example takes an image as input, detects the cars using YOLOv3 object detector, crops the car images, makes them square while keeping the aspect ratio, resizes them to the input size of the classifier, and recognizes the make and model of each car. The result is printed on the display.
@@ -44,8 +46,6 @@ make: Volkswagen        model: Passat   confidence: 0.732364 %
 make: Volkswagen        model: Polo     confidence: 0.701915 %
 ------------------------------------------------
 ```
-
-![image](https://github.com/spectrico/car-make-model-classifier-yolo3-cpp/blob/master/car-make-model.png?raw=true)
 
 ---
 ## Requirements
