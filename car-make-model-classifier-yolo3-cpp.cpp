@@ -194,8 +194,10 @@ cv::Mat GetSquareImage(const cv::Mat& img, int target_width)
 int main(int argc, char** argv)
 {
 	cv::dnn::Net net_car_make_model_classifier;
-	const std::string modelFile = "model-weights-spectrico-mmr-mobilenet-224x224-908A6A8C.pb";
-	const int classifier_input_size = 224;
+	//const std::string modelFile = "model-weights-spectrico-mmr-mobilenet-224x224-908A6A8C.pb";
+	const std::string modelFile = "model-weights-spectrico-mmr-mobilenet-64x64-531A7126.pb";
+	//const int classifier_input_size = 224;
+	const int classifier_input_size = 64;
 	//! [Initialize network]
 	net_car_make_model_classifier = cv::dnn::readNetFromTensorflow(modelFile);
 	if (net_car_make_model_classifier.empty())
@@ -258,7 +260,6 @@ int main(int argc, char** argv)
 		if (!(classIdObjectDetector == 3 - 1) || (classIdObjectDetector == 6 - 1) || (classIdObjectDetector == 8 - 1))
 			continue;
 
-		//cv::Size inputImgSize = cv::Size(224, 224);
 		std::string inBlobName = "input_1";
 		std::string outBlobName = "softmax/Softmax";
 		cv::Mat img_car = getPaddedROI(img, box.x, box.y, box.width, box.height, cv::BORDER_REPLICATE);
